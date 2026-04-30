@@ -1,21 +1,24 @@
 from .datos import jugadores
+from .utils import pedir_text
+
 def agregar_jugador():
-    futbolista = input("Ingresa el Nombre del Jugador: ")
-    equipo = input("Ingresa el equipo en el que juega: ")
+    futbolista = pedir_text("Ingresa el Nombre del Jugador: ")
+    equipo = pedir_text("Ingresa el equipo en el que juega: ")
 
     jugador = {
         "futbolista" : futbolista,
         "equipo" : equipo 
     }
+    
     jugadores.append(jugador)
     print("El Jugador se agrego correctamente")
 
 def ver_jugador():
     if not jugadores:
-        print("No hay Ningun Jugardor Resgistrado")
+        print("No hay Ningun Jugador Resgistrado")
         return
     
-    ver = input("Ingresa el nombre del futbolista que quieres ver: ")
+    ver = pedir_text("Ingresa el nombre del futbolista que quieres ver: ")
 
     for jugador in jugadores:
         if jugador["futbolista"].lower() == ver.lower():
@@ -23,7 +26,7 @@ def ver_jugador():
             print(f"equipo {jugador['equipo']}")
             return
 
-    print("Jugador no Encontardo")
+    print("Jugador no Encontrado")
 
 
 def eliminar_jugador():
@@ -31,7 +34,7 @@ def eliminar_jugador():
         print("No hay Jugadores Ingresados")
         return 
     
-    ver = input("Ingresa el Nombre del jugaador que desea eliminar: ")
+    ver = pedir_text("Ingresa el Nombre del jugador que desea eliminar: ")
 
     for jugador in jugadores:
         if jugador["futbolista"].lower() == ver.lower():

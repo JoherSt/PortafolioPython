@@ -1,4 +1,5 @@
 from paquete.inventario import agregar_equipo, mostrar_equipos,buscar_equipo, eliminar_equipo,editar_equipo
+from paquete.utils import pedir_string
 
 
 def menu():
@@ -11,7 +12,11 @@ def menu():
         print("5. Editar")
         print("6. Salir")
 
-        opcion = input(" Seleccione una opción: ")
+        opcion = pedir_string(" Seleccione una opción: ")
+
+        if  opcion not in["1", "2", "3", "4", "5", "6"]:
+            print("Ingresa un dato valido")
+            continue
 
         if opcion == "1":
             agregar_equipo()

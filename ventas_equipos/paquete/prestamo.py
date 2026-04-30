@@ -1,10 +1,10 @@
-from .utils import pedir_entero, pedir_float
+from .utils import pedir_entero, pedir_float, pedir_string
 from .datos import equipos
 
 
 def agregar_producto():
-    nombre = input("Ingresa tu Nombre: ")
-    codigo = input("Ingresa el Codigo: ")
+    nombre = pedir_string("Ingresa tu Nombre: ")
+    codigo = pedir_string("Ingresa el Codigo: ")
     precio = pedir_float("Ingresa el precio: ")
     stok = pedir_entero("Ingrese la cantidad de Equipos disponibles: ")
     ventas = pedir_float("Ingresa la Cantidad de equipos vendidos: ")
@@ -39,7 +39,7 @@ def buscar_producto():
         print("No hay ningun equipo registrado")
         return
     
-    codigo = input("Ingresa el codigo del equipo: ")
+    codigo = pedir_string("Ingresa el codigo del equipo: ")
 
     for equipo in equipos:
         if equipo["codigo"] == codigo:
@@ -54,7 +54,7 @@ def vender_producto():
         print("No hay productos registrados")
         return
 
-    codigo = input("Ingresa el codigo del producto: ")
+    codigo = pedir_string("Ingresa el codigo del producto: ")
 
     for equipo in equipos:
         if equipo["codigo"] == codigo:
@@ -88,7 +88,7 @@ def editar_producto():
         print("No hay equipos registrados")
         return
     
-    codigo = input("Ingresa el codigo del equipo que quires editar: ")
+    codigo = pedir_string("Ingresa el codigo del equipo que quires editar: ")
 
     for equipo in equipos:
         if equipo["codigo"] == codigo :
@@ -99,13 +99,14 @@ def editar_producto():
             print(f"stok {equipo['stok']}")
             print(f"ventas {equipo['ventas']}")
 
-            equipo["nombre"] = input("Ingresa el nuevo nombre: ")
-            equipo["codigo"] = input("Ingresa el nuevo codigo: ")
-            equipo["precio"] = input("Ingresa el nuevo precio: ")
-            equipo["stok"] = input("Ingresa el nuevo stok: ")
-            equipo["ventas"] = input("Ingresa la nueva venta: ")
+            equipo["nombre"] = pedir_string("Ingresa el nuevo nombre: ")
+            equipo["codigo"] = pedir_string("Ingresa el nuevo codigo: ")
+            equipo["precio"] = pedir_float("Ingresa el nuevo precio: ")
+            equipo["stok"] = pedir_entero("Ingresa el nuevo stok: ")
+            equipo["ventas"] = pedir_float("Ingresa la nueva venta: ")
         
         print("Equipo agregado correctamente")
+        return
 
 
 

@@ -1,4 +1,4 @@
-from .utils import pedir_entero, pedir_float
+from .utils import pedir_entero, pedir_float, pedir_string
 from .datos import estudiantes
 
 
@@ -17,7 +17,7 @@ def pedir_notas():
 
 
 def registrar_estudiantes():
-    nombre = input("Ingresa tu nombre: ").strip().title()
+    nombre = pedir_string("Ingresa tu nombre: ").strip().title()
     edad = pedir_entero("Ingresa tu edad: ")
     notas = pedir_notas()
 
@@ -55,7 +55,7 @@ def mostrar_estudiantes():
 
 
 def buscar_estudiante():
-    nombre_buscar = input("Ingresa el Nombre del Estudiante: ").strip().title()
+    nombre_buscar = pedir_string("Ingresa el Nombre del Estudiante: ").strip().title()
 
     for estudiante in estudiantes:
         if estudiante["nombre"] == nombre_buscar:
@@ -72,7 +72,7 @@ def buscar_estudiante():
 
 
 def eliminar_estudiante():
-    nombre_eliminar = input("Ingresa el Nombre del estudiante que vas a Eliminar: ").strip().title()
+    nombre_eliminar = pedir_string("Ingresa el Nombre del estudiante que vas a Eliminar: ").strip().title()
 
     for i, estudiante in enumerate(estudiantes):
         if estudiante["nombre"] == nombre_eliminar:
@@ -84,7 +84,7 @@ def eliminar_estudiante():
 
 
 def editar_notas():
-    nombre_editar = input("Ingrese el Nombre del estudiante que quiere actualizarle la Nota: ").strip().title()
+    nombre_editar = pedir_string("Ingrese el Nombre del estudiante que quiere actualizarle la Nota: ").strip().title()
     
     for estudiante in estudiantes:
         if estudiante["nombre"] == nombre_editar:

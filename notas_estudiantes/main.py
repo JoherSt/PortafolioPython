@@ -1,5 +1,5 @@
 from paquete.notas import registrar_estudiantes, mostrar_estudiantes, buscar_estudiante, eliminar_estudiante, editar_notas
-
+from paquete.utils import pedir_string
 def mostrar_menu():
     while True:
         print("=" * 30)
@@ -12,7 +12,12 @@ def mostrar_menu():
         print("5. Editar notas")
         print("6. Salir")
 
-        opcion = input("Selecciona una opción: ")
+        opcion = pedir_string("Selecciona una opción: ")
+
+        if opcion not in["1", "2", "3", "4", "5", "6"]:
+            print("Ingresa un dato valido")
+            continue
+
 
         if opcion == "1":
             registrar_estudiantes()

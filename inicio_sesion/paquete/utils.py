@@ -28,4 +28,11 @@ def pedir_contraseña(mensaje):
         else:
             print("Las contraseñas no coinciden.")
 
+def pedir_string(mensaje):
+    while True:
+        valor = input(mensaje)
+
+        if valor:
+            return valor
+        print("Ingresa el dato solicitado")
 

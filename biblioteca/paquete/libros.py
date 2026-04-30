@@ -1,8 +1,11 @@
 from .datos import books
+from .utils import pedir_texto
 
 def agregar_books():
-    titulo = input("Ingresa el titulo del libro: ")
-    autor = input("Ingresa el Nombre del autor: ") 
+    titulo = pedir_texto("Ingresa el titulo del libro: ").lower()
+    autor = pedir_texto("Ingresa el Nombre del autor: ") .lower()
+
+    
 
     libros = {
         "titulo" : titulo,
@@ -12,14 +15,15 @@ def agregar_books():
     books.append(libros)
     print("Agregado Correctamente")
 
-def mostrar_books():
+def buscar_books():
 
     
     if not books:
         print("No hay libros")
         return
 
-    mostrar = input("Ingresa el nombre de el libro que solicita: ")
+    mostrar = pedir_texto("Ingresa el nombre de el libro que solicita: ").lower()
+    
 
     for book in books:
         if book['titulo'] == mostrar:
@@ -33,9 +37,14 @@ def eliminar_book():
     if not books:
         print("No se encontro ningun libro")
         return
-        
-    eliminar = input("Por favor ingresa el nombre del libro que quiere eliminar: ")
+    
+    print("Si no desea eliminar nada solo presione ENTER para cancelar")    
+    eliminar = input("Por favor ingresa el nombre del libro que quiere eliminar: ").lower()
 
+    if not eliminar:
+        print("Eliminacion Cancelada")
+        return
+    
     for book in books:
         if book['titulo'] == eliminar:
             books.remove(book)
@@ -48,7 +57,7 @@ def edit_book():
         print("No hay Ningun libro agregado")
         return
     
-    edit = input("Ingresa el titulo que quieres editar")
+    edit = pedir_texto("Ingresa el titulo que quieres editar: ")
 
     for book in books:
         if book['titulo'] == edit:
@@ -63,7 +72,7 @@ def edit_book():
             print("Libro actualizado correctamente")
             return
 
-        print("No hay Libros con este nombre ")
+    print("No hay Libros con este nombre ")
 
 
 

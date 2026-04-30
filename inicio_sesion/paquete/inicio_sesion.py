@@ -1,4 +1,4 @@
-from .utils import pedir_int, pedir_correo, pedir_contraseña
+from .utils import pedir_int, pedir_correo, pedir_contraseña, pedir_string
 from .datos  import cuentas
 import getpass
 
@@ -6,13 +6,20 @@ import getpass
 def crear_cuenta():
     print("=== CREAR CUENTA ===")
 
-    nombre = input("Ingresa tu Nombre: ").strip().title()
+    nombre = pedir_string("Ingresa tu Nombre: ").strip().title()
     documento = pedir_int("Ingresa tu Documento: ")
+
+    for cuenta in cuentas:
+        if cuenta["Documento"] == documento:
+            print("Este Documento ya existe ")
+            return
+    
     contraseña = pedir_contraseña("Ingresa la Contraseña: ")
     edad = pedir_int("Ingresa tu Edad: ")
     telefono = pedir_int("Ingresa tu Teléfono: ")
     correo_electronico = pedir_correo("Ingresa tu Correo Electrónico: ")
-    direccion = input("Ingresa tu Dirección: ").strip()
+    direccion = pedir_string("Ingresa tu Dirección: ").strip()
+
 
     cuenta = {
         "Nombre": nombre,
@@ -28,6 +35,7 @@ def crear_cuenta():
     print(" Usuario agregado con éxito.")
 
 
+
 def iniciar_sesion():
     if not cuentas:
         print("No hay cuentas registradas. Crea una cuenta primero.")
@@ -35,7 +43,7 @@ def iniciar_sesion():
 
     print("=== INICIAR SESIÓN ===")
 
-    usuario_ingresado = input("Ingrese su Nombre: ").strip().title()
+    usuario_ingresado = pedir_string("Ingrese su Nombre: ").strip().title()
     contraseña_ingresada = getpass.getpass("Ingrese la contraseña: ")
 
     for cuenta in cuentas:
@@ -47,28 +55,16 @@ def iniciar_sesion():
     return None
 
 
-def menu_usuario(cuenta):
-    while True:
-        print("=== MENÚ USUARIO ===")
-        print("1. Ver datos de la cuenta")
-        print("2. Cerrar sesión")
+def mostrar_cuenta(cuenta):
 
-        opcion = input("Selecciona una opción: ")
+    print(f"Nombre: {cuenta['Nombre']}")
+    print(f"Documento: {cuenta['Documento']}")
+    print(f"Edad: {cuenta['Edad']}")
+    print(f"Teléfono: {cuenta['Telefono']}")
+    print(f"Correo: {cuenta['Correo']}")
+    print(f"Dirección: {cuenta['Direccion']}")
 
-        if opcion == "1":
-            print(f"Nombre: {cuenta['Nombre']}")
-            print(f"Documento: {cuenta['Documento']}")
-            print(f"Edad: {cuenta['Edad']}")
-            print(f"Teléfono: {cuenta['Telefono']}")
-            print(f"Correo: {cuenta['Correo']}")
-            print(f"Dirección: {cuenta['Direccion']}")
 
-        elif opcion == "2":
-            print("Sesión cerrada.")
-            break
-
-        else:
-            print("Opción inválida.")
 
 
 

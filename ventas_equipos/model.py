@@ -1,4 +1,6 @@
 from paquete.prestamo import agregar_producto, mostrar_producto, buscar_producto, vender_producto, editar_producto
+from paquete.utils import pedir_string
+
 def menu():
     while True:
         print("==BIENVENIDO==")
@@ -9,7 +11,11 @@ def menu():
         print("5.Editar Producto: ")
         print("6.Salir: ")
 
-        opcion = input("Selecciona una Opcion: ")
+        opcion = pedir_string("Selecciona una Opcion: ")
+
+        if opcion not in["1", "2", "3", "4", "5", "6"]:
+            print("Dato no valido")
+            continue
 
         if opcion == "1":
             agregar_producto()

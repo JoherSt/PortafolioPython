@@ -1,4 +1,5 @@
 from paquete.hotel import crear_cliente, habitaciones_disponibles, reservar_habitacion
+from paquete.utils import pedir_string
 
 def menu():
     while True:
@@ -8,7 +9,11 @@ def menu():
         print("3. Reservar Habitacion: ")
         print("4. Salir: ")
 
-        opcion = input("Selecciona una Opcion: ")
+        opcion = pedir_string("Selecciona una Opcion: ")
+        
+        if opcion not in["1", "2", "3", "4"]:
+            print("Elija una opcion valida")
+            continue
 
         if opcion == "1":
             crear_cliente()
@@ -17,9 +22,8 @@ def menu():
         elif opcion == "3":
             reservar_habitacion()
         elif opcion == "4":
-            "Saliendo del programa"
+            print("Saliendo del programa")
             break
-        else:
-            print("por favor ingresa una opccion valida")
+            
 
 menu()

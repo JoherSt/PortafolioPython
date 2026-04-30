@@ -1,5 +1,5 @@
 from paquete.celulares import agregar_celular, mostrar_celular, buscar_marca
-
+from paquete.utils import pedir_string
 def menu():
     while True:
 
@@ -9,7 +9,12 @@ def menu():
         print("3.Buscar por marca")
         print("4.Salir")
 
-        opcion = input("Seleccione una opcion: ")
+        opcion = pedir_string("Seleccione una opcion: ")
+
+        if opcion  not in["1", "2", "3", "4"]:
+            print("Selecciona una de las opciones disponibles")
+            continue
+        
 
         if opcion == "1":
             agregar_celular()

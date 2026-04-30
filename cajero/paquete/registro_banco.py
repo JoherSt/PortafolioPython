@@ -1,12 +1,15 @@
-from .utils import pedir_int, pedir_float
+from .utils import pedir_int, pedir_float, pedir_texto
 from .datos import cuentas
 
 
+
 def registro():
-    nombre = input("Ingresa tu nombre de Usuario: ").lower().strip()
-    contraseña = input("Ingresa tu contraseña: ").strip()
+    nombre = pedir_texto("Ingresa tu nombre de Usuario: ").lower().strip()
+    contraseña = pedir_texto("Ingresa tu contraseña: ").strip()
     tarjeta = pedir_int("Por favor Ingresa tu tarjeta: ")
-    tipo_cuenta = input("Ingresa el tipo de cuenta: (Ahorros/Corriente): ").lower()
+    tipo_cuenta = pedir_texto("Ingresa el tipo de cuenta: (Ahorros/Corriente): ").lower()
+
+    
 
     if tipo_cuenta == "ahorros":
         print("Cuenta de Ahorros Seleccionada")
@@ -25,26 +28,25 @@ def registro():
     print("Cuenta agregada exitosamente")
 
 def iniciar_sesion():
-    while True:
-        if not cuentas:
-            print("No hay ninguna cuenta agregada")
-            return
+    if not cuentas:
+        print("No hay ninguna cuenta agregada")
+        return
 
-        nombre = input("Ingresa tu nombre: ").lower().strip()
-        contraseña = input("Ingresa tu contraseña: ").lower().strip()
+    nombre = pedir_texto("Ingresa tu nombre: ").lower().strip()
+    contraseña = pedir_texto("Ingresa tu contraseña: ").strip()
 
-        for cuenta in cuentas:
-            if cuenta["nombre"] == nombre and cuenta["contraseña"] == contraseña:
-                print("Inicio de sesion Exitoso")
-                return 
-        print("Nombre o Contraseña Incorrectos")
+    for cuenta in cuentas:
+        if cuenta["nombre"] == nombre and cuenta["contraseña"] == contraseña:
+            print("Inicio de sesion Exitoso")
+            return 
+    print("Nombre o Contraseña Incorrectos")
 
 def mostrar_cuenta():
     if not cuentas:
         print("No hay cuentas Registradas: ")
         return
     
-    nombre = input(" Por favor Ingresa el nombre de la Cuenta: ").lower().strip()
+    nombre = pedir_texto(" Por favor Ingresa el nombre de la Cuenta: ").lower().strip()
     
     encontrada = False
     for cuenta in cuentas:
@@ -69,7 +71,7 @@ def pedir_monto():
         print("4.100.000: ")
         print("5.Otro valor: ")
 
-        opcion = input("Selecciona una de las opciones para retirar: ")
+        opcion = pedir_texto("Selecciona una de las opciones para retirar: ")
         
         if opcion == "1":
             monto = 10000
@@ -86,6 +88,7 @@ def pedir_monto():
             continue
         print(f"Monto Retirado: {monto}")
         return monto
+        
 
 
 

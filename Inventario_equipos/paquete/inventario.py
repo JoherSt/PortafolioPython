@@ -1,4 +1,4 @@
-from .utils import pedir_bool, pedir_entero
+from .utils import pedir_bool, pedir_entero, pedir_string
 from .list import equipos
 
 
@@ -7,21 +7,21 @@ def agregar_equipo():
 
     numero_inventario = pedir_entero("Ingrese el N°Inventario: ")
     numero_activo = pedir_entero("Ingrese el Número del Activo: ")
-    persona_a_cargo = input("Ingrese el nombre de la persona a cargo de este equipo: ")
-    usuario = input("Usuario asignado: ")
-    nombre_equipo = input("Ingrese el Nombre del equipo: ")
-    contraseña_equipo = input("Ingrese la Contraseña: ")
-    modelo = input("Modelo: ")
-    marca = input("Ingrese la Marca: ")
-    serial = input("Ingrese Número de serie: ")
-    modo_bios = input("Ingrese el Modo de Bios: ")
-    serie_bios = input("Ingrese la Serie de Bios: ")
-    procesador = input("Ingrese el Procesador: ")
+    persona_a_cargo = pedir_string("Ingrese el nombre de la persona a cargo de este equipo: ")
+    usuario = pedir_string("Usuario asignado: ")
+    nombre_equipo = pedir_string("Ingrese el Nombre del equipo: ")
+    contraseña_equipo = pedir_string("Ingrese la Contraseña: ")
+    modelo = pedir_string("Modelo: ")
+    marca = pedir_string("Ingrese la Marca: ")
+    serial = pedir_string("Ingrese Número de serie: ")
+    modo_bios = pedir_string("Ingrese el Modo de Bios: ")
+    serie_bios = pedir_string("Ingrese la Serie de Bios: ")
+    procesador = pedir_string("Ingrese el Procesador: ")
     ram = pedir_entero("Ingrese la Memoria Ram: ")
     almacenamiento = pedir_entero("Ingrese el Almacenamiento del equipo: ")
-    sistema_operativo = input("Ingrese el Sistema Operativo: ")
-    estado = input("Estado (Activo / Inactivo): ")
-    anotaciones = input("Ingrese las fallas del equipo (Opcional): ")
+    sistema_operativo = pedir_string("Ingrese el Sistema Operativo: ")
+    estado = pedir_string("Estado (Activo / Inactivo): ")
+    anotaciones = pedir_string("Ingrese las fallas del equipo (Opcional): ")
     valor_costo = pedir_entero("Ingrese el valor de costo del equipo: ")
     valor_comercializacion = pedir_entero("Ingrese el valor de comercialización: ")
     diferencia = valor_costo - valor_comercializacion
@@ -68,8 +68,11 @@ def mostrar_equipos():
             print(f"{clave}: {valor}")
         print()  
 def buscar_equipo():
+    if not  equipos:
+        print("No hay equipos registrados")
+        return
     
-    serial_buscar = input("Ingrese el serial a buscar: ")
+    serial_buscar = pedir_string("Ingrese el serial a buscar: ")
 
     for equipo in equipos:
         if equipo["serial"] == serial_buscar:
@@ -81,10 +84,11 @@ def buscar_equipo():
     print("Equipo no encontrado.")
 
 def eliminar_equipo():
-    if not equipos:
+    if not equipos: 
      print("No hay equipos registrados.")
+     return
         
-    
+    print("Si no desea eliminar el equipo presioan ENTER")
     numero = pedir_entero("Por favor ingresa el activo que deseas eliminar: ")
 
     encontrado = False

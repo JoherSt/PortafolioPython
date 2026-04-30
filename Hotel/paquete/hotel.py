@@ -1,5 +1,5 @@
 from .datos import clientes, habitaciones, reservas
-from .utils import pedir_int
+from .utils import pedir_int, pedir_string
 
 
 
@@ -7,7 +7,7 @@ from .utils import pedir_int
 
 def crear_cliente():
     documento = pedir_int("Ingresa tu Documento: ")
-    nombre = input("Ingresa tu Nombre: ")
+    nombre = pedir_string("Ingresa tu Nombre: ")
     telefono = pedir_int("Ingresa tu telefono: ")
 
     cliente = {

@@ -14,3 +14,12 @@ def pedir_bool(mensaje):
                 return False
             else:
                 print(" Debes ingresar Si o No")
+
+def pedir_string(mensaje):
+     while True:
+          
+          valor = input(mensaje)
+
+          if valor:
+               return valor
+          print("Ingrese un dato valido")

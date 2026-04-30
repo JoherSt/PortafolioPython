@@ -24,3 +24,13 @@ def pedir_bool(mensaje):
                 return False
             else:
                 print("Por favor ingresa la respusta correcta: ")
+
+def pedir_string(mensaje):
+    while True:
+        valor = input(mensaje)
+
+        if valor:
+            return valor
+        print("Este campo no puede ir vacio")
+
+        

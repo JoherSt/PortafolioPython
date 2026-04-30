@@ -1,4 +1,5 @@
 from paquete.jugadores import agregar_jugador, ver_jugador, eliminar_jugador
+from paquete.utils import pedir_text
 
 def menu():
     while True:
@@ -8,7 +9,11 @@ def menu():
         print("3.Eliminar Jugador: ")
         print("4.Salir: ")
 
-        opcion = input("Selecciona Una Opcion: ")
+        opcion = pedir_text("Selecciona Una Opcion: ")
+
+        if opcion not in ["1", "2", "3", "4"]:
+            print("Opcion Invalida, Por favor ingresa una opcion valida")
+            continue
 
         if opcion == "1":
             agregar_jugador()
@@ -18,7 +23,7 @@ def menu():
             eliminar_jugador()
         elif opcion == "4":
             print("Saliendo del Programa")
-        break
+            break
 
 menu()
 

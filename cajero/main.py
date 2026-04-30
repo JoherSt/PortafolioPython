@@ -1,4 +1,6 @@
 from paquete.registro_banco import registro, iniciar_sesion, mostrar_cuenta, pedir_monto
+from paquete.utils import pedir_texto
+
 def menu():
     while True:
         print("==BIENVENIDO==")
@@ -8,7 +10,12 @@ def menu():
         print("4.Pedir Monto: ")
         print("5.Salir")
 
-        opcion = input("Por favor Selecciona una opcion: ")
+        opcion = pedir_texto("Por favor Selecciona una opcion: ")
+
+        if opcion not in["1", "2", "3", "4", "5"]:
+            print("Ingresa una de las opciones del menu")
+            continue
+
 
         if opcion == "1":
             registro()

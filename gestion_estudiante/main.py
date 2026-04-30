@@ -1,4 +1,5 @@
 from paquete.estudiante import agregar_estudiante, ver_estudiantes, buscar_estudiante,eliminar_estudiante
+from paquete.utils import pedir_string
 
 def menu():
     while True:
@@ -9,7 +10,11 @@ def menu():
         print("4.Eliminar Estudiante: ")
         print("5.Salir: ")
 
-        opcion = input("Elige una Opcion: ")
+        opcion = pedir_string("Elige una Opcion: ")
+
+        if opcion not in ["1", "2", "3", "4", "5"]:
+            print("Opcion Invalida, por favor elige una opcion valida")
+            continue
 
         if opcion == "1":
             agregar_estudiante()

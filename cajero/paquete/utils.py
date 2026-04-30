@@ -15,3 +15,15 @@ def pedir_float(mensaje):
             return valor
         except ValueError:
             print("Por favor Ingresa un valor valido")
+
+def  pedir_texto(mensaje):
+    while True:
+
+        valor = input(mensaje)
+        
+        if valor:
+            return valor
+        print("Ingresa el dato correspondiente")
+
+
+

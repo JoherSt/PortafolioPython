@@ -1,4 +1,5 @@
-from paquete.inicio_sesion import crear_cuenta, iniciar_sesion, menu_usuario
+from paquete.inicio_sesion import crear_cuenta, iniciar_sesion, mostrar_cuenta
+from paquete.utils import pedir_string
 
 def menu_principal():
     cuenta_actual = None
@@ -10,28 +11,23 @@ def menu_principal():
         print("3. Menú Usuario")
         print("4. Salir")
 
-        opcion = input("Selecciona una opción: ")
+        opcion = pedir_string("Selecciona una opción: ")
+
+        if opcion not in["1", "2", "3", "4"]:
+            print("Ingresa una opcion valida")
+            continue
 
         if opcion == "1":
             crear_cuenta()
-
         elif opcion == "2":
-            cuenta_actual = iniciar_sesion()
-
+            cuenta_actual = iniciar_sesion()  
         elif opcion == "3":
-            if cuenta_actual:
-                menu_usuario(cuenta_actual)
+            if cuenta_actual is None:
+                print("Primero debes iniciar sesión")
             else:
-                print("Primero debes iniciar sesión.")
-
+                mostrar_cuenta(cuenta_actual)  
         elif opcion == "4":
             print("Saliendo del programa...")
             break
-
-        else:
-            print("Opción inválida.")
-
-
-
 
 menu_principal()
