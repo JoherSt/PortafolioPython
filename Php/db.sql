@@ -1,16 +1,16 @@
 CREATE TABLE usuarios 
 (
-id bigint PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50),
-email VARCHAR(100),
-password VARCHAR(100)
+    id bigint PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(100)
 )
 
 CREATE TABLE categorias 
 (
-id bigint PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50),
-description VARCHAR(100)
+    id bigint PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    description VARCHAR(100)
 )
 
 create table tareas 

@@ -2,16 +2,16 @@ CREATE DATABASE IF NOT EXISTS task_db;
 USE task_db;
 
 CREATE TABLE usuarios (
-id bigint PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50),
-email VARCHAR(100),
-password VARCHAR(255)
+    id bigint PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    password VARCHAR(255)
 );
 
 CREATE TABLE categorias (
-id bigint PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(50),
-description VARCHAR(100)
+    id bigint PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    description VARCHAR(100)
 );
 
 CREATE TABLE tareas (

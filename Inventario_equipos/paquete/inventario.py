@@ -25,7 +25,6 @@ def agregar_equipo():
     valor_costo = pedir_entero("Ingrese el valor de costo del equipo: ")
     valor_comercializacion = pedir_entero("Ingrese el valor de comercialización: ")
     diferencia = valor_costo - valor_comercializacion
-    print(f"La diferencia es ${diferencia}")
     tiene_office = pedir_bool("¿El equipo tiene Office instalado?") 
     tiene_windows = pedir_bool("¿El equipo tiene Windows instalado?")
 
@@ -49,9 +48,9 @@ def agregar_equipo():
         "anotaciones": anotaciones,
         "valor_costo": valor_costo,
         "valor_comercializacion": valor_comercializacion,
-        "tiene_office": tiene_office,
-        "diferencia": diferencia,
-        "tiene_windows": tiene_windows
+        "diferencia" : diferencia,
+        "office": tiene_office,
+        "windows": tiene_windows
     }
 
     equipos.append(equipo)
@@ -85,11 +84,11 @@ def buscar_equipo():
 
 def eliminar_equipo():
     if not equipos: 
-     print("No hay equipos registrados.")
-     return
+        print("No hay equipos registrados.")
+        return
         
     print("Si no desea eliminar el equipo presioan ENTER")
-    numero = pedir_entero("Por favor ingresa el activo que deseas eliminar: ")
+    numero = input("Ingresa el N°Activo que deseas eliminar: ")
 
     encontrado = False
     for equipo in equipos:
@@ -131,13 +130,13 @@ def editar_equipo():
                 if nuevo_valor:
                     if clave in ["numero_inventario", "numero_activo", "valor_costo", "valor_comercializacion"]:
                         equipo[clave] = int(nuevo_valor)
-                    elif clave in ["tiene_office", "tiene_windows"]:
+                    elif clave in ["office", "windows"]:
                         equipo[clave] = nuevo_valor.lower() == "si"
                     else:
                         equipo[clave] = nuevo_valor
 
             
-            equipo["diferencia"] = equipo["valor_comercializacion"] - equipo["valor_costo"]
+            equipo["diferencia"] = equipo["valor_costo"] - equipo["valor_comercializacion"] 
 
             print(" Equipo actualizado correctamente.")
             return
