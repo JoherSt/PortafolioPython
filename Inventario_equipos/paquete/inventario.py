@@ -66,6 +66,8 @@ def mostrar_equipos():
         for clave, valor in equipo.items():
             print(f"{clave}: {valor}")
         print()  
+
+    
 def buscar_equipo():
     if not  equipos:
         print("No hay equipos registrados")
