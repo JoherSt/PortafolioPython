@@ -44,6 +44,21 @@ def eliminar_jugador():
         
     print("Jugador no encontrado")
 
+def editar_futbolista():
+    
+    if not jugadores :
+        print("no hay Jugadores Ingresados ")
+        return
+    
+    ver = pedir_text("Ingresa el Nombre del jugador que desea editar: ")
+
+    for jugador in jugadores:
+        if jugador["futbolista"].lower() == ver.lower():
+            futbolista = pedir_text("Ingresa el Nombre del futbolista: ")
+            equipo = pedir_text("Ingresa el equipo en el que juega: ")
+            jugador["futbolista"] = futbolista
+            jugador["equipo"] = equipo
+            print("El jugador fue editado correctamente")
 
 
 

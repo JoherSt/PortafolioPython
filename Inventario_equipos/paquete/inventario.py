@@ -50,7 +50,7 @@ def agregar_equipo():
         "valor_comercializacion": valor_comercializacion,
         "diferencia" : diferencia,
         "office": tiene_office,
-        "windows": tiene_windows
+        "windows": tiene_windows    
     }
 
     equipos.append(equipo)
