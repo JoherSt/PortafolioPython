@@ -1,5 +1,5 @@
 from paquete.inventario import agregar_equipo, mostrar_equipos,buscar_equipo, eliminar_equipo,editar_equipo
-from paquete.utils import pedir_string
+from .paquete.utils import pedir_string
 
 
 def menu():
@@ -10,7 +10,7 @@ def menu():
         print("3. Buscar equipo por serial")
         print("4. Eliminar Equipo")
         print("5. Editar")
-        print("6. Salir")
+        print("6. Salir del programa (y guardar)")
 
         opcion = pedir_string(" Seleccione una opción: ")
 
@@ -32,6 +32,6 @@ def menu():
             print("Saliendo del programa")
             break
         else:
-            print(" Opción no válida ")
+            print(" Opción inválida ")
 
 menu()
