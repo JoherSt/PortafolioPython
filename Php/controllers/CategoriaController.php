@@ -53,4 +53,5 @@ class CategoriaController
             echo "error en la sentencia eliminar o no existe la categoria que quiere eliminar";
         }
     }
-}
+
+}   
