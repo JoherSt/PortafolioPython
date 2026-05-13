@@ -77,8 +77,9 @@ def reservar_habitacion():
             print("Reserva realizada con exito: ")
             print(f"El total es: {total}")
             return
-        if not encontrada:
-            print("La habitacion no existe")
+        
+    if not encontrada:
+        print("La habitacion no existe")
 
 
 
