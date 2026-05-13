@@ -33,8 +33,6 @@ def menu():
         elif opcion == "6":
             print("Saliendo del programa")
             break   
-        
-
 
 
 menu()
