@@ -4,7 +4,7 @@ from paquete.utils import pedir_string
 def menu():
     while True:
         print("==BIENVENIDO==")
-        print("1.Agreagar Estudiante: ")
+        print("1.Agregar Estudiante: ")
         print("2.Ver Estudiantes: ")
         print("3.Buscar Estudiante: ") 
         print("4.Eliminar Estudiante: ")

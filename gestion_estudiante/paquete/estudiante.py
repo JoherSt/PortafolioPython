@@ -2,7 +2,7 @@ from .datos import estudiantes
 from .utils import pedir_int, pedir_string
 
 def agregar_estudiante():
-    nombre = pedir_string("Ingresa tu Nombre: ")
+    nombre = pedir_string("Ingresa tu Nombre: ").lower()
     edad = pedir_int("Ingresa tu Edad: ")
     curso = pedir_string("Ingresa tu Curso: ")
 
@@ -32,7 +32,7 @@ def buscar_estudiante():
         print("No hay ningun estudiante Registrado")
         return
 
-    ver = pedir_string("ingresa tu nombre: ")
+    ver = pedir_string("ingresa tu nombre: ").lower()
 
     for estudiante in estudiantes:
         if estudiante["nombre"] == ver:
@@ -48,7 +48,7 @@ def eliminar_estudiante():
         print("No hay estudiantes Registrados: ")
         return
     print("Si No deseas eliminar a ningun estudiante, presiona ENTER:  ")
-    eliminar = input("Ingresa el Nombre del estudiante que deseas eliminar: ")
+    eliminar = input("Ingresa el Nombre del estudiante que deseas eliminar: ").lower()
 
     for estudiante in estudiantes:
         if estudiante['nombre'] == eliminar:
