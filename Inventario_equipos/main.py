@@ -1,5 +1,5 @@
 from paquete.inventario import agregar_equipo, mostrar_equipos,buscar_equipo, eliminar_equipo,editar_equipo
-from .paquete.utils import pedir_string
+from paquete.utils import pedir_string
 
 
 def menu():
