@@ -107,12 +107,3 @@ def editar_producto():
         
         print("Equipo agregado correctamente")
         return
-                
-
-
-
-
-
-    
-
-
